@@ -1,0 +1,13 @@
+services:
+  web-asa01:
+    build: 
+      context: ./web-asa
+      dockerfile: Dockerfile
+    image: web-asa
+    container_name: c002
+    networks:
+      - asa-network
+#docker networks
+networks:
+  asa-network:
+    driver: bridge
