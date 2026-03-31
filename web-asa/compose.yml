@@ -1,13 +1,18 @@
 services:
   web-asa01:
-    build: 
-      context: ./web-asa
+    build:
+      context: .
       dockerfile: Dockerfile
     image: web-asa
     container_name: c002
+    ports:
+      - "80:8080"
+    volumes:
+      - .:/usr/share/nginx/html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - asa-network
-#docker networks
+
 networks:
   asa-network:
     driver: bridge
