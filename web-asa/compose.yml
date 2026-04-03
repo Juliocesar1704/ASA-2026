@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: web-asa
-    container_name: c002
+    container_name: c001-web-asa01
     ports:
       - "80:8080"
     volumes:
