@@ -1,28 +1,28 @@
 services:
   web-asa01:
     build:
-      context: ./c001-web-asa
+      context: ./c001-web-asa01
       dockerfile: Dockerfile
     image: web-asa
-    container_name: c001-web-asa01
+    container_name: c001-web-asa
     ports:
       - "80:8080"
     volumes:
-      - ./c001-web-asa:/usr/share/nginx/html
-      - ./c001-web-asa/default.conf:/etc/nginx/conf.d/default.conf
+      - ./c001-web-asa01:/usr/share/nginx/html
+      - ./c001-web-asa01/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - asa-network
   web-asa02:
     build:
-      context: ./c002-web-asa
+      context: ./c002-web-asa02
       dockerfile: Dockerfile
     image: web-asa
-    container_name: c002-web-asa02
+    container_name: c002-web-asa
     ports:
       - "81:80"
     volumes:
-      - ./c002-web-asa:/usr/share/nginx/html
-      - ./c002-web-asa/default.conf:/etc/nginx/conf.d/default.conf
+      - ./c002-web-asa02:/usr/share/nginx/html
+      - ./c002-web-asa02/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - asa-network
 
