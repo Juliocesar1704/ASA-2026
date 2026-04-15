@@ -27,6 +27,24 @@ services:
     networks:
       - asa-network
 
+  dns-server:
+    build: 
+      context: ./c003-dns-server
+      dockerfile: Dockerfile
+    image: dns-server-asa
+    container_name: c003-dns-server
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    volumes:
+      - ./c003-dns-server/named.conf.local:/etc/bind/named.conf.local
+      - ./c003-dns-server/jc.asa.br:/etc/bind/jc.asa.br
+    networks:
+      - asa-network
+    restart: always
+
+
+
 networks:
   asa-network:
     driver: bridge
