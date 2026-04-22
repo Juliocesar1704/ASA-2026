@@ -2,12 +2,18 @@
 // Do any local configuration here
 //
 
-zone "jc.asa.br"{
+options {
+    directory "/var/cache/bind";
+    recursion yes;
+    allow-query { any; };
+    allow-recursion { any; };
+    listen-on-v6 { none; };
+};
+
+zone "jc.asa.br" {
     type master;
     file "/etc/bind/jc.asa.br";
-    allow-transfer {
-        127.0.0.1;
-    };
+    allow-transfer { 127.0.0.1; };
 };
 
 // Consider adding the 1918 zones here, if they are not used in your
